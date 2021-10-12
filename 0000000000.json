@@ -1,0 +1,195 @@
+{
+  "title": "[Internal] Windows Like",
+  "rules": [
+    {
+      "description": "[Internal] caps to command",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc\\.macos$"
+              ]
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 657
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[Internal] shift+control to caps",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control", 
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "caps_lock"
+            }
+          ],
+          "to": [
+            {
+              "key_code": "left_control",
+              "modifiers": [
+                "shift"
+              ],
+              "lazy": true
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 657
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[Internal] fn+F9 to Insert",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "fastforward",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "insert"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 657
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[Internal] fn+F8 to PrintScreen",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "play_or_pause",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "printscreen_key"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 657
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[Internal][RDC] caps to control",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc\\.macos$"
+              ]
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 657
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -16,6 +16,14 @@
                 "option"
               ]
             }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.microsoft.rdc.macos"
+              ]
+            }
           ]
         }
       ]
@@ -37,6 +45,14 @@
             {
               "key_code": "international3"
             }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.microsoft.rdc.macos"
+              ]
+            }
           ]
         }
       ]
@@ -54,6 +70,38 @@
               "key_code": "international3",
               "modifiers": [
                 "option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.microsoft.rdc.macos"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "_ to \\ [rdp]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "international1"
+          },
+          "to": [
+            {
+              "key_code": "international3"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.microsoft.rdc.macos"
               ]
             }
           ]
@@ -76,6 +124,14 @@
           "to": [
             {
               "key_code": "international1"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "com.microsoft.rdc.macos"
+              ]
             }
           ]
         }

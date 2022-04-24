@@ -23,7 +23,47 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
-                "^com\\.microsoft\\.rdc\\.macos$"
+                "^com\\.microsoft\\.rdc\\.macos$",
+                "^com\\.vmware\\.fusion$"
+              ]
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 657
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[Internal][RDC][Fusion] caps to control",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc\\.macos$",
+                "^com\\.vmware\\.fusion$"
               ]
             },
             {
@@ -70,6 +110,62 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.vmware\\.fusion$"
+              ]
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 657
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[Internal][Fusion] shift+control to caps",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control", 
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "caps_lock"
+            }
+          ],
+          "to": [
+            {
+              "key_code": "japanese_eisuu",
+              "modifiers": [
+                "shift"
+              ],
+              "lazy": true
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.vmware\\.fusion$"
+              ]
+            },
             {
               "type": "device_if",
               "identifiers": [
@@ -140,44 +236,6 @@
             }
           ],
           "conditions": [
-            {
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 657
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "[Internal][RDC] caps to control",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "caps_lock",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_control"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.rdc\\.macos$"
-              ]
-            },
             {
               "type": "device_if",
               "identifiers": [

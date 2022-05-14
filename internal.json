@@ -1,8 +1,8 @@
 {
-  "title": "[Internal] Windows Like",
+  "title": "[I] Windows Like",
   "rules": [
     {
-      "description": "[Internal] caps to command",
+      "description": "[I] caps to command",
       "manipulators": [
         {
           "type": "basic",
@@ -41,46 +41,7 @@
       ]
     },
     {
-      "description": "[Internal][RDC][Fusion] caps to control",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "caps_lock",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_control"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.rdc\\.macos$",
-                "^com\\.vmware\\.fusion$"
-              ]
-            },
-            {
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1452,
-                  "product_id": 657
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "[Internal] shift+control to caps",
+      "description": "[I] shift+control to caps",
       "manipulators": [
         {
           "type": "basic",
@@ -113,6 +74,7 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc\\.macos$",
                 "^com\\.vmware\\.fusion$"
               ]
             },
@@ -130,39 +92,26 @@
       ]
     },
     {
-      "description": "[Internal][Fusion] shift+control to caps",
+      "description": "[I] ¥ to \\",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "left_control", 
-            "modifiers": {
-              "mandatory": [
-                "shift"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            }
+            "key_code": "international3"
           },
-          "to_if_alone": [
-            {
-              "key_code": "caps_lock"
-            }
-          ],
           "to": [
             {
-              "key_code": "japanese_eisuu",
+              "key_code": "international3",
               "modifiers": [
-                "shift"
-              ],
-              "lazy": true
+                "option"
+              ]
             }
           ],
           "conditions": [
             {
-              "type": "frontmost_application_if",
+              "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc\\.macos$",
                 "^com\\.vmware\\.fusion$"
               ]
             },
@@ -180,27 +129,31 @@
       ]
     },
     {
-      "description": "[Internal] fn+F9 to Insert",
+      "description": "[I] Alt+¥ to ¥",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "fastforward",
+            "key_code": "international3",
             "modifiers": {
               "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "any"
+                "option"
               ]
             }
           },
           "to": [
             {
-              "key_code": "insert"
+              "key_code": "international3"
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc\\.macos$",
+                "^com\\.vmware\\.fusion$"
+              ]
+            },
             {
               "type": "device_if",
               "identifiers": [
@@ -215,27 +168,68 @@
       ]
     },
     {
-      "description": "[Internal] fn+F8 to PrintScreen",
+      "description": "[I] _ to \\",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "play_or_pause",
+            "key_code": "international1"
+          },
+          "to": [
+            {
+              "key_code": "international3",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc\\.macos$",
+                "^com\\.vmware\\.fusion$"
+              ]
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 657
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[I] shift+_ to _",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "international1",
             "modifiers": {
               "mandatory": [
-                "fn"
-              ],
-              "optional": [
-                "any"
+                "shift"
               ]
             }
           },
           "to": [
             {
-              "key_code": "printscreen_key"
+              "key_code": "international1"
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc\\.macos$",
+                "^com\\.vmware\\.fusion$"
+              ]
+            },
             {
               "type": "device_if",
               "identifiers": [

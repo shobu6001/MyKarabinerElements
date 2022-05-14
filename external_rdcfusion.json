@@ -1,58 +1,39 @@
 {
-  "title": "¥ and \\",
+  "title": "[E](RDC)(Fusion) Windows Like",
   "rules": [
     {
-      "description": "¥ to \\",
+      "description": "[E](RDC)(Fusion) Nfer to eisu",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "international3"
-          },
-          "to": [
-            {
-              "key_code": "international3",
-              "modifiers": [
-                "option"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.rdc\\.macos$",
-                "^com\\.vmware\\.fusion$"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Alt+¥ to ¥",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "international3",
+            "key_code": "japanese_pc_nfer",
             "modifiers": {
-              "mandatory": [
-                "option"
+              "optional": [
+                "any"
               ]
             }
           },
           "to": [
             {
-              "key_code": "international3"
+              "key_code": "japanese_eisuu"
             }
           ],
           "conditions": [
             {
-              "type": "frontmost_application_unless",
+              "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.microsoft\\.rdc\\.macos$",
                 "^com\\.vmware\\.fusion$"
+              ]
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 2220,
+                  "product_id": 770
+                }
               ]
             }
           ]
@@ -60,27 +41,38 @@
       ]
     },
     {
-      "description": "_ to \\",
+      "description": "[E](RDC)(Fusion) Xfer to kana",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "international1"
+            "key_code": "japanese_pc_xfer",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
           },
           "to": [
             {
-              "key_code": "international3",
-              "modifiers": [
-                "option"
-              ]
+              "key_code": "japanese_kana"
             }
           ],
           "conditions": [
             {
-              "type": "frontmost_application_unless",
+              "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.microsoft\\.rdc\\.macos$",
                 "^com\\.vmware\\.fusion$"
+              ]
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 2220,
+                  "product_id": 770
+                }
               ]
             }
           ]
@@ -88,7 +80,46 @@
       ]
     },
     {
-      "description": "_ to \\ [rdp]",
+      "description": "[E](RDC)(Fusion) Kana to kana",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_pc_katakana",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "japanese_kana"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc\\.macos$",
+                "^com\\.vmware\\.fusion$"
+              ]
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 2220,
+                  "product_id": 770
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[E](RDC) _ to \\",
       "manipulators": [
         {
           "type": "basic",
@@ -106,35 +137,14 @@
               "bundle_identifiers": [
                 "^com\\.microsoft\\.rdc\\.macos$"
               ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "shift+_ to _",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "international1",
-            "modifiers": {
-              "mandatory": [
-                "shift"
-              ]
-            }
-          },
-          "to": [
+            },
             {
-              "key_code": "international1"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.rdc\\.macos$",
-                "^com\\.vmware\\.fusion$"
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 2220,
+                  "product_id": 770
+                }
               ]
             }
           ]
